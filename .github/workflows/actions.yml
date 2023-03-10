@@ -1,0 +1,20 @@
+name: GitHub Actions
+on: [push]
+jobs:
+  Check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository code
+        uses: actions/checkout@v3
+      - run: dotnet build .
+      - run: dotnet test .
+      - run: ls -la ./bin/Debug/net6.0/
+      - run: ./bin/Debug/net6.0/PackageDependencies
+  Trivy:
+    runs-on: curlimages/curl:latest
+    steps:
+      - name: Check out repository code
+        uses: actions/checkout@v3
+      - run: curl -sfL https://raw.githubusercontent.com/aquasecurity/trivy/main/contrib/install.sh | sh -s -- -b .
+      - run: ./trivy fs .
+

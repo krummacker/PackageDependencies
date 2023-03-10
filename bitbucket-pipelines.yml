@@ -1,0 +1,13 @@
+image: mcr.microsoft.com/dotnet/sdk:6.0
+
+pipelines:
+  default:
+    - step:
+        name: Check
+        script:
+          - dotnet build .
+          - dotnet test .
+          - ls -la ./bin/Debug/net6.0/
+          - ./bin/Debug/net6.0/PackageDependencies
+
+
