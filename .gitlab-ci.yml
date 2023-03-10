@@ -6,11 +6,11 @@ stages:
 check:
   stage: test
   script:
-    - dotnet build ./PrimeAnalyzer
-    - dotnet build ./PrimeAnalyzerTest
-    - dotnet test ./PrimeAnalyzerTest
-    - ls -la ./PrimeAnalyzer/bin/Debug/net6.0/
-    - ./PrimeAnalyzer/bin/Debug/net6.0/PrimeAnalyzer
+    - dotnet build ./PackageDependencies
+    - dotnet build ./PackageDependencies
+    - dotnet test ./PackageDependencies
+    - ls -la ./PackageDependencies/bin/Debug/net6.0/
+    - ./PackageDependencies/bin/Debug/net6.0/PackageDependencies
 
 trivy:
   stage: test
