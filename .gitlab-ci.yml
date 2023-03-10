@@ -6,11 +6,10 @@ stages:
 check:
   stage: test
   script:
-    - dotnet build ./PackageDependencies
-    - dotnet build ./PackageDependencies
-    - dotnet test ./PackageDependencies
-    - ls -la ./PackageDependencies/bin/Debug/net6.0/
-    - ./PackageDependencies/bin/Debug/net6.0/PackageDependencies
+    - dotnet build .
+    - dotnet test .
+    - ls -la ./bin/Debug/net6.0/
+    - ./bin/Debug/net6.0/PackageDependencies
 
 trivy:
   stage: test
